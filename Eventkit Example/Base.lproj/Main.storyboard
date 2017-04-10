@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Uyi-Xl-Shg">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calender Events-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Eventkit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="jOL-10-0c3">
+                                <rect key="frame" x="20" y="64" width="374" height="672"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6Z-vQ-J4c">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MZI-Hb-Mdj">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zg-r0-6gU">
+                                <rect key="frame" x="0.0" y="64" width="414" height="657"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="calenderEventCell" textLabel="LDg-yC-DUF" style="IBUITableViewCellStyleDefault" id="KLC-YY-QBH">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KLC-YY-QBH" id="vtF-Mw-utg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LDg-yC-DUF">
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="jY2-W5-amE"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="efE-sG-ecC"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MaM-66-bQj" customClass="DesignableView" customModule="Eventkit_Example" customModuleProvider="target">
+                                <rect key="frame" x="48" y="254" width="317" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="'Eventkit Example' needs permissions to access your calender in order to work" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcC-83-6Ct">
+                                        <rect key="frame" x="21" y="60" width="274" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Need Permission" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAd-nb-1SC">
+                                        <rect key="frame" x="24" y="20" width="268" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7B-fK-l8H" customClass="DesignableButton" customModule="Eventkit_Example" customModuleProvider="target">
+                                        <rect key="frame" x="72" y="145" width="173" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Go To  Settings">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.42222929000854492" green="0.31569159030914307" blue="0.080964244902133942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="gotoSettingsBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EnY-SK-VwB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91742700338363647" green="0.77516371011734009" blue="0.55097317695617676" alpha="0.65727370689655173" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.42222929000854492" green="0.31569159030914307" blue="0.080964244902133942" alpha="0.65398706896551728" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jOL-10-0c3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3s2-89-BTJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jOL-10-0c3" secondAttribute="trailing" id="4fC-zg-ACe"/>
+                            <constraint firstItem="7zg-r0-6gU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="50f-nB-rka"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="f6Z-vQ-J4c" secondAttribute="bottom" id="88e-kh-45D"/>
+                            <constraint firstItem="7zg-r0-6gU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9aG-GH-GJZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7zg-r0-6gU" secondAttribute="bottom" constant="15" id="EaC-u2-s6F"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jOL-10-0c3" secondAttribute="bottom" id="GIg-I8-0fM"/>
+                            <constraint firstItem="f6Z-vQ-J4c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LIJ-2n-Yoc"/>
+                            <constraint firstAttribute="trailing" secondItem="f6Z-vQ-J4c" secondAttribute="trailing" id="MGu-qk-gvm"/>
+                            <constraint firstItem="jOL-10-0c3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QWt-wJ-LMc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jOL-10-0c3" secondAttribute="bottom" id="Y4r-Qr-5mC"/>
+                            <constraint firstItem="jOL-10-0c3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Z1L-rJ-Jhy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jOL-10-0c3" secondAttribute="trailing" id="fnB-al-gzx"/>
+                            <constraint firstItem="jOL-10-0c3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hBM-Yl-QQh"/>
+                            <constraint firstAttribute="trailing" secondItem="7zg-r0-6gU" secondAttribute="trailing" id="k14-a6-k16"/>
+                            <constraint firstItem="f6Z-vQ-J4c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="u0L-G4-sGX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calender Events" id="UqR-2D-Oml">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Czk-lT-W7j">
+                            <color key="tintColor" red="0.01537397876" green="0.88223928210000002" blue="0.8325873613" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addEventBtnClick:" destination="BYZ-38-t0r" id="Osu-rv-qeu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addEventBtn" destination="Czk-lT-W7j" id="ha7-R7-zNv"/>
+                        <outlet property="calendarsTableView" destination="7zg-r0-6gU" id="ucv-zf-LbE"/>
+                        <outlet property="permissionAlertView" destination="MaM-66-bQj" id="ca8-wf-vUJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043.4782608695652" y="136.95652173913044"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l05-qL-TWc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uyi-Xl-Shg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TG7-56-qzS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eY6-SM-2Cg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ant-tR-YLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.23188405797103" y="136.95652173913044"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1" width="736" height="552"/>
+    </resources>
+</document>
