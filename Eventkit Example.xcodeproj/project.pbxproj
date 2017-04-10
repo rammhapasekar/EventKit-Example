@@ -14,6 +14,7 @@
 		3F287A6F1E9A08B200D848AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F287A6D1E9A08B200D848AB /* LaunchScreen.storyboard */; };
 		3F287A7C1E9A528F00D848AB /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F287A7A1E9A528F00D848AB /* DesignableView.swift */; };
 		3F287A7D1E9A528F00D848AB /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F287A7B1E9A528F00D848AB /* DesignableButton.swift */; };
+		3F9DD7A91E9B5376008C4D00 /* UIViewAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9DD7A81E9B5376008C4D00 /* UIViewAnimationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3F287A701E9A08B200D848AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F287A7A1E9A528F00D848AB /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		3F287A7B1E9A528F00D848AB /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		3F9DD7A81E9B5376008C4D00 /* UIViewAnimationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnimationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				3F287A6B1E9A08B200D848AB /* Assets.xcassets */,
 				3F287A6D1E9A08B200D848AB /* LaunchScreen.storyboard */,
 				3F287A701E9A08B200D848AB /* Info.plist */,
+				3F9DD7A81E9B5376008C4D00 /* UIViewAnimationExtension.swift */,
 			);
 			path = "Eventkit Example";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				3F287A671E9A08B200D848AB /* ViewController.swift in Sources */,
 				3F287A651E9A08B200D848AB /* AppDelegate.swift in Sources */,
+				3F9DD7A91E9B5376008C4D00 /* UIViewAnimationExtension.swift in Sources */,
 				3F287A7C1E9A528F00D848AB /* DesignableView.swift in Sources */,
 				3F287A7D1E9A528F00D848AB /* DesignableButton.swift in Sources */,
 			);
@@ -310,6 +314,7 @@
 				3F287A751E9A08B200D848AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -120,12 +120,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         permissionAlertView.transform = CGAffineTransform(scaleX: 0.3, y: 2)
         
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: {
-            
-            self.permissionAlertView.transform = .identity
-        }){ (success) in
-            
-        }
+        permissionAlertView.ScaleViewWithSpringDamping()
+        
     }
     
     
@@ -194,15 +190,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             
             //Save the calender using the eventstore instance and reload calender entry
-            
-            do{
-                try self.eventstore.saveCalendar(newCalendar, commit: true)
-                self.loadCalender()
-                self.refreshTableView()
-            }
-            catch{
-                self.showError(error: error)
-            }
+            self.save(an: newCalendar)
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
@@ -279,27 +267,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         selectedIndexPath = indexPath.row
         
-        // 1 Add Edit Action
+        // Add Edit Action
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit" , handler: { (action:UITableViewRowAction!, indexPath:IndexPath) -> Void in
             
-            // 2 Add alertviewController as action to the edit button click
+            // Add alertviewController as action to the edit button click
             
             let alertController = UIAlertController(title: "Add New Event", message: "", preferredStyle: .alert)
             
             let saveAction = UIAlertAction(title: "Save Event", style: .default, handler: {
                 alert -> Void in
                
-                do{
-                    //Delete calender entry using eventstore
-                    
-                    try self.eventstore.removeCalendar((self.calendars?[indexPath.row])!, commit: true)
-                    self.loadCalender()
-                    self.refreshTableView()
-                }
-                catch{
-                    self.showError(error: error)
-                }
-                
                 let firstTextField = alertController.textFields![0] as UITextField
                 
                 // Use Event Store to create a new calendar instance
@@ -338,16 +315,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     newCalendar.source = localSource!
                 }
                 
-                //Save the calender using the eventstore instance and reload calender entry
-                
-                do{
-                    try self.eventstore.saveCalendar(newCalendar, commit: true)
-                    self.loadCalender()
-                    self.refreshTableView()
-                }
-                catch{
-                    self.showError(error: error)
-                }
+                self.deleteEvent(at: self.selectedIndexPath)
+                self.save(an: newCalendar)
             })
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
@@ -367,24 +336,45 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.present(alertController, animated: true, completion: nil)
         })
         
-        // 3 Add Delete Action
+        // Add Delete Action
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:IndexPath) -> Void in
-            // 4
-            do{
-                //Delete calender entry using eventstore
-                try self.eventstore.removeCalendar((self.calendars?[indexPath.row])!, commit: true)
-                self.loadCalender()
-                self.refreshTableView()
-            }
-            catch{
-                self.showError(error: error)
-            }
-
+            
+            self.deleteEvent(at: self.selectedIndexPath)
         })
         
         editAction.backgroundColor = UIColor.green
         
-        // 5 Add UITableViewRowAction
+        // Add UITableViewRowAction
         return [deleteAction,editAction]
+    }
+    
+    //MARK:
+    //MARK: Delete Calender Event at given index
+    
+    func deleteEvent(at index:Int){
+        // Delete calender entry using eventstore
+        do{
+            try self.eventstore.removeCalendar((self.calendars?[index])!, commit: true)
+            self.loadCalender()
+            self.refreshTableView()
+        }
+        catch{
+            self.showError(error: error)
+        }
+    }
+    
+    //MARK:
+    //MARK: Save given Calender Event
+    
+    func save(an event:EKCalendar){
+        // Save the calender using the eventstore instance and reload calender entry
+        do{
+            try self.eventstore.saveCalendar(event, commit: true)
+            self.loadCalender()
+            self.refreshTableView()
+        }
+        catch{
+            self.showError(error: error)
+        }
     }
 }
